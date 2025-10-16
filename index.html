@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronomy Dictionary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial , sans-serif;
+      background: url("https://images.pexels.com/photos/2034892/pexels-photo-2034892.jpeg?cs=srgb&dl=pexels-lucaspezeta-2034892.jpg&fm=jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      color: #ffffff;
+      text-shadow: 0px 0px 10px #000;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 60%;
+      max-width: 400px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #00cc99;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 0 15px rgba(0,255,204,0.6);
+      text-align: center;
+    }
+    .definitions {
+      margin: 10px 0;
+    }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+    .flex-container {
+      display: flex;
+	  flex-wrap: wrap; /* makes it responsive on small screens */
+      gap: 20px;
+	  align-items: flex-start;
+	}
+
+	.definitions {
+		flex: 1; /* takes remaining space */
+		min-width: 200px;
+	}
+
+	.image-container {
+		flex: 1; /* image takes remaining space */
+		min-width: 200px;
+	}
+
+	.image-container img {
+		width: 100%;
+		border-radius: 12px;
+	}
+  </style>
+</head>
+<body>
+  <h1>Astronomy Dictionary</h1>
+  <input type="text" id="word" placeholder="Enter an astronomy term (e.g., galaxy, nebula)">
+  <button onclick="getMeaning()">Search</button>
+
+  <div id="result">
+    <!-- Dynamic card will appear here -->
+  </div>
+
+  <script>
+    async function getMeaning() {
+      let word = document.getElementById("word").value.trim()
+      if (!word) return
+
+      document.getElementById("result").innerHTML = "Loading..."
+
+      try {
+        // Fetch definitions
+        let res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        if (!res.ok) {
+          document.getElementById("result").innerHTML = "Word not found!"
+          return
+        }
+        let data = await res.json()
+        let defs = data[0].meanings
+          .map(m => m.definitions.map(d => `<li>${d.definition}</li>`).join(""))
+          .join("")
+
+        // Fetch NASA image
+        let nasaRes = await fetch(`https://images-api.nasa.gov/search?q=${word}`)
+        let nasaData = await nasaRes.json()
+        let image = nasaData.collection.items.length > 0 
+          ? nasaData.collection.items[0].links[0].href 
+          : "https://apod.nasa.gov/apod/image/1901/IC405_Abolfath_3171.jpg"
+
+        // Display card side by side
+        document.getElementById("result").innerHTML = `
+          <div class="card">
+            <h2>${word.charAt(0).toUpperCase() + word.slice(1)}</h2>
+            <div class="flex-container">
+              <div class="definitions">
+                <h3>  Definition:</h3>
+                <ul>${defs}</ul>
+              </div>
+              <div class="image-container">
+                <img src="${image}" alt="${word}">
+              </div>
+            </div>
+          </div>
+        `
+      } catch (err) {
+        document.getElementById("result").innerHTML = "⚠️ Error fetching data!"
+      }
+    }
+  </script>
+</body>
+</html>
