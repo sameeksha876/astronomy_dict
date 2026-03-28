@@ -1,37 +1,51 @@
 # Astronomy Dictionary
 
 ## Overview
-Astronomy Dictionary is an educational reference project designed to provide clear and structured definitions of important astronomy and astrophysics terms. The goal of this project is to create an accessible knowledge base for students and beginners interested in space science.
+Astronomy Dictionary is an educational reference application designed to provide clear and structured definitions of important astronomy and astrophysics terms. The project aims to create a beginner-friendly knowledge base that helps students quickly understand core space science concepts through organized terminology and simple explanations.
 
-The project organizes astronomical concepts into a searchable and easy-to-understand format, making it useful as a quick reference tool for learning fundamental space science terminology.
+This project focuses on structured data organization, information retrieval, and clean interface design to demonstrate fundamental software development concepts.
 
 ---
 
 ## Motivation
-Astronomy contains many complex terms that can be difficult for beginners to understand. Students often need a simple and organized reference to quickly look up definitions while studying.
 
-This project aims to:
-- Simplify astronomy terminology
+Astronomy contains many complex terms that beginners often find difficult to understand. Students usually need a simple and organized reference to quickly look up definitions while studying.
+
+This project was built to:
+
+- Simplify complex astronomy terminology
 - Provide beginner-friendly explanations
-- Create a structured scientific glossary
-- Support learning in space science
+- Organize scientific knowledge systematically
+- Practice fundamental software development concepts
+- Build a structured educational reference tool
 
 ---
 
 ## Features
 
+### Core Features
 - Structured dictionary of astronomy terms
 - Beginner-friendly definitions
-- Categorization of concepts
-- Search functionality (if implemented)
-- Expandable knowledge base
-- Clean and simple interface
+- Clean and simple user interface
+- Expandable knowledge base structure
+
+### Learning Features
+- Search functionality for quick term lookup
+- Category-based filtering of concepts
+- Related term suggestions for concept exploration
+- Organized scientific terminology for structured learning
+
+### Technical Features
+- JSON-based data storage
+- Efficient term lookup logic
+- Modular project structure
+- Scalable dataset design for adding new terms
 
 ---
 
 ## Topics Covered
 
-The dictionary includes concepts from:
+The dictionary includes concepts from major astronomy domains:
 
 - Solar System
 - Stars and Stellar Evolution
@@ -41,7 +55,10 @@ The dictionary includes concepts from:
 - Space Exploration
 - Observational Astronomy
 
-Example entries:
+### Example Terms
+
+Some example concepts included:
+
 - Black Hole
 - Nebula
 - Supernova
@@ -49,23 +66,20 @@ Example entries:
 - Light Year
 - Dark Matter
 - Exoplanet
+- Pulsar
+- White Dwarf
 
 ---
 
 ## Tech Stack
-
-Depending on your implementation (adjust if needed):
 
 ### Frontend
 - HTML
 - CSS
 - JavaScript
 
-### Backend (if used)
-- Node.js / Express
-
-### Database (if used)
-- JSON / MySQL
+### Data Storage
+- JSON (structured term dataset)
 
 ### Tools
 - Git
@@ -86,16 +100,13 @@ frontend/
     styles.css
     script.js
 
-backend/ (optional)
-    server.js
-
 docs/
     concepts.md
 ```
 
 ---
 
-## Example Entry Structure
+## Data Structure
 
 Example term format:
 
@@ -115,38 +126,52 @@ Event Horizon, Singularity, Hawking Radiation
 
 ---
 
-## Future Improvements
+## Key Concepts Demonstrated
 
-Possible enhancements:
+This project demonstrates understanding of:
 
-- Add more astronomy terms
-- Add search optimization
-- Add category filtering
-- Add images and diagrams
-- Add pronunciation guides
-- Add quiz mode for learning
-- Build web API for term retrieval
+- Data structuring and organization
+- Information retrieval basics
+- Fundamental frontend development
+- Educational software design
+- Project documentation practices
+- Knowledge representation basics
 
 ---
 
 ## Learning Outcomes
 
-This project helped in understanding:
+Through this project, the following skills were developed:
 
-- Scientific knowledge organization
-- Data structuring
-- Information retrieval concepts
-- Basic frontend development
-- Educational software design
+- Organizing structured datasets
+- Designing beginner-friendly technical explanations
+- Implementing search and filtering logic
+- Building simple web interfaces
+- Managing project structure
+- Writing technical documentation
+
+---
+
+## Future Improvements
+
+Possible enhancements include:
+
+- Adding more astronomy terms
+- Adding images and diagrams
+- Adding pronunciation guides
+- Adding quiz mode for learning
+- Adding concept relationship graphs
+- Improving search performance
+- Adding dark mode UI
 
 ---
 
 ## Project Status
 
-Ongoing development – expanding dictionary entries and improving structure.
+Completed as a foundational learning project. Future improvements may include additional terms and UI enhancements.
 
 ---
 
 ## Author
 
-Sameeksha Khurpe
+**Sameeksha Khurpe**
